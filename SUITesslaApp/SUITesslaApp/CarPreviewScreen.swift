@@ -7,12 +7,28 @@
 
 import SwiftUI
 
+/// Экран с урока
+struct CarPreviewScreen: View {
 
+    // MARK: - Private Constants
 
-struct ContentView: View {
+    private enum Constants {
+        static let topGradientColorName = "TopGradient"
+        static let bottomGradientColorName = "BottomGradient"
+        static let nBackgroundColorName = "NBackground"
+        static let teslaText = "Tesla"
+        static let teslaDefaultRange = "187 km"
+        static let closeCarImageName = "closeCar"
+        static let carImageName = "car"
+        static let closeText = "Закрыть"
+        static let openText = "Открыть"
+        static let lockImageName = "lock"
+        static let lockFillImageName = "lock.fill"
 
-    @State var isCarClosed = false
-    @State var tagSelected = 0
+    }
+
+    // MARK: - Public constants
+
     var body: some View {
         backgroundStackView {
             VStack {
@@ -28,17 +44,20 @@ struct ContentView: View {
         }
     }
 
-    var gradient: LinearGradient {
-        LinearGradient(colors: [Color("TopGradient"), Color("BottomGradient")], startPoint: .bottom, endPoint: .top)
+    // MARK: - Private properties
+
+    @State private var isCarClosed = false
+    @State private var tagSelected = 0
+
+    private var gradient: LinearGradient {
+        LinearGradient(colors: [Color(Constants.topGradientColorName), Color(Constants.bottomGradientColorName)], startPoint: .bottom, endPoint: .top)
     }
 
-    var controllPanelView: some View {
+    private var controllPanelView: some View {
         HStack(spacing: 30) {
             ForEach(1..<5) { index in
-                Button {
-                    withAnimation {
-                        tagSelected = index
-                    }
+                NavigationLink {
+                    SettingsScreenView()
                 } label: {
                     Image("\(index)")
                         .resizable()
@@ -54,21 +73,19 @@ struct ContentView: View {
             }
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 50).fill(Color("NBackground")))
+        .background(RoundedRectangle(cornerRadius: 50).fill(Color(Constants.nBackgroundColorName)))
         .neumorfismUnselectedStyle()
         .offset(y: -70)
     }
 
-    // MARK: - Private properties
-
-    var headerView: some View {
+    private var headerView: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Tesla")
+                Text(Constants.teslaText)
                     .font(.system(size: 28))
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-                Text("187 km")
+                Text(Constants.teslaDefaultRange)
                     .font(.system(size: 17))
                     .fontWeight(.semibold)
                     .opacity(0.4)
@@ -79,17 +96,15 @@ struct ContentView: View {
         .padding()
     }
 
-    var carView: some View {
-        Image(isCarClosed ? "closeCar" : "car")
+    private var carView: some View {
+        Image(isCarClosed ? Constants.closeCarImageName : Constants.carImageName)
             .resizable()
-            .scaledToFit()
             .frame(height: 250)
             .padding(.leading, 30)
-            .padding(.bottom, 40)
             .shadow(color: .white.opacity(0.6), radius: 15, x: 10, y: 1)
     }
 
-    var closeCarControllView: some View {
+    private var closeCarControllView: some View {
         Button {
             withAnimation {
                 isCarClosed.toggle()
@@ -97,15 +112,15 @@ struct ContentView: View {
         } label: {
             HStack {
                 Label {
-                    Text(isCarClosed ? "Закрыть" : "Открыть")
+                    Text(isCarClosed ? Constants.closeText : Constants.openText)
                 } icon: {
-                    Image(systemName: isCarClosed ? "lock" : "lock.fill")
+                    Image(systemName: isCarClosed ? Constants.lockImageName : Constants.lockFillImageName)
                         .renderingMode(.template)
                         .neumorfismUnSelectedCircleStyle()
                 }
             }
             .padding()
-            .background(RoundedRectangle(cornerRadius: 50).fill(Color("NBackground")))
+            .background(RoundedRectangle(cornerRadius: 50).fill(Color(Constants.nBackgroundColorName)))
             .neumorfismSelectedStyle()
         }
         .frame(width: 300)
@@ -116,7 +131,7 @@ struct ContentView: View {
     private func backgroundStackView<Content: View> (content: () -> Content) -> some View {
         ZStack {
             Rectangle()
-                .fill(Color("NBackground"))
+                .fill(Color(Constants.nBackgroundColorName))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .edgesIgnoringSafeArea(.all)
             content()
@@ -124,34 +139,32 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .environment(\.colorScheme, .dark)
-    }
-}
-
 struct NeumorfismUnselected: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .shadow(color: Color("LightShadow"), radius: 5, x: -5, y: -5)
-            .shadow(color: Color("DarkShadow"), radius: 5, x: 5, y: 5)
+            .shadow(color: Color(GlobalConstants.lightShadowColorName), radius: 5, x: -5, y: -5)
+            .shadow(color: Color(GlobalConstants.darkShadowColorName), radius: 5, x: 5, y: 5)
     }
 }
 
 struct NeumorfismSelected: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .shadow(color: Color("LightShadow"), radius: 5, x: 5, y: 5)
-            .shadow(color: Color("DarkShadow"), radius: 5, x: -5, y: -5)
+            .shadow(color: Color(GlobalConstants.lightShadowColorName), radius: 5, x: 5, y: 5)
+            .shadow(color: Color(GlobalConstants.darkShadowColorName), radius: 5, x: -5, y: -5)
     }
 }
 
 struct NeumorfismUnSelectedCircle: ViewModifier {
+
+    private enum Constants {
+        static let nBackgroundColorName = "NBackground"
+    }
+
     func body(content: Content) -> some View {
         content
             .padding(.all, 10)
-            .background(Circle().fill(Color("NBackground")))
+            .background(Circle().fill(Color(Constants.nBackgroundColorName)))
             .neumorfismUnselectedStyle()
     }
 }
@@ -167,5 +180,12 @@ extension View {
 
     func neumorfismUnSelectedCircleStyle() -> some View {
         modifier(NeumorfismUnSelectedCircle())
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        CarPreviewScreen()
+            .environment(\.colorScheme, .dark)
     }
 }

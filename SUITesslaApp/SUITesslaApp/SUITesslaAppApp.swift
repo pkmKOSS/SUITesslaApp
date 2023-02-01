@@ -11,7 +11,8 @@ import SwiftUI
 struct SUITesslaAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StartScreenView()
+                .environment(\.colorScheme, .dark)
         }
     }
 }
