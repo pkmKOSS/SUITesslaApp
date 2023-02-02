@@ -1,4 +1,3 @@
-//
 //  StartScreen.swift
 //  SUITesslaApp
 //
@@ -23,7 +22,6 @@ struct StartScreenView: View {
         static let darkCarImageName = "darkCar"
         static let unlockButtonText = "Unlock"
         static let lockButtonImageName = "lock"
-
     }
 
     // MARK: - Public properties
@@ -31,23 +29,11 @@ struct StartScreenView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                backgroundDarkGradient()
+                backgroundDarkGradientView()
                     .ignoresSafeArea()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                VStack {
-                    HStack{
-                        Spacer()
-                        settingsButton
-                    }.padding(EdgeInsets(top: 0, leading: 0, bottom: 250, trailing: 40))
-
-                    if isSystemUnlocked {
-                        welcomeBackText
-                    }
-                    carImageView
-                        .padding()
-                    unlockView
-                        .padding()
-                }
+                contentsView
+                settingsButtonView.offset(x: 150, y: -320)
             }
         }
     }
@@ -56,28 +42,51 @@ struct StartScreenView: View {
 
     @State private var isSystemUnlocked = false
 
-    private var welcomeBackText: some View {
+    private var contentsView: some View {
+        ZStack {
+            if isSystemUnlocked {
+                welcomeBackTextView
+                    .offset(y: -200)
+            }
+            VStack {
+                ZStack {
+                    carImageGradientTransitionView
+                        .padding()
+                    unlockView
+                        .offset(y: 220)
+                        .padding()
+                }
+            }
+        }
+    }
+
+    private var welcomeBackTextView: some View {
         Text(Constants.welcomeBackText)
             .font(.title)
             .bold()
     }
 
-    private var settingsButton: some View {
+    private var settingsButtonView: some View {
         NavigationLink {
             CarPreviewScreen()
+                .navigationBarBackButtonHidden(true)
         } label: {
-            ZStack {
-                Constants.backgroundTopColor
-                Image(systemName: Constants.settingsButtonImageName)
-                    .foregroundColor(.gray)
-            }
-            .frame(width: 50, height: 50)
-            .clipShape(Circle())
+            Image(systemName: Constants.settingsButtonImageName)
+                .renderingMode(.template)
+                .foregroundColor(.gray)
+                .frame(width: 50, height: 50)
+                .settingsNeumorfismUnSelectedCircleStyle()
         }
-        .frame(width: 65, height: 65)
     }
 
-    private func backgroundDarkGradient() -> some View {
+    private var headSettingsButtonView: some View {
+        HStack{
+            Spacer()
+            settingsButtonView
+        }
+    }
+
+    private func backgroundDarkGradientView() -> some View {
         LinearGradient(
             colors: [
                 isSystemUnlocked ? Constants.backgroundTopColor : Constants.backgroundColor,
@@ -90,15 +99,30 @@ struct StartScreenView: View {
     private var carImageView: some View {
         Image(isSystemUnlocked ? Constants.lightCarImageName : Constants.darkCarImageName)
             .scaledToFit()
-            .frame(height: 200)
+            .frame(height: 210)
+            .offset(y: isSystemUnlocked ? 50 : 0)
             .padding()
+    }
+
+    private var carImageGradientTransitionView: some View {
+        ZStack {
+            if !isSystemUnlocked {
+                LinearGradient(colors: [.black, Constants.backgroundTopColor], startPoint: .bottom, endPoint: .top)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                    .offset(y: -120)
+            }
+            carImageView
+        }
     }
 
     private var unlockView: some View {
         ZStack {
-            Constants.backgroundTopColor
+            LinearGradient(colors: !isSystemUnlocked ? [Constants.backgroundTopColor] : [.black, .gray], startPoint: .topLeading, endPoint: .bottomTrailing)
             HStack {
-                Text(Constants.unlockButtonText).padding(.trailing)
+                Text(isSystemUnlocked ? Constants.lockButtonImageName : Constants.unlockButtonText)
+                    .frame(width: 70)
+                    .padding(.trailing)
                 ZStack {
                     Circle()
                         .fill(Constants.backgroundTopColor)

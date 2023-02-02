@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Кастомный слайдер c гита.
-struct CustomSlider<Value, Track, Fill, Thumb>: View
+struct CarSettingsSlider<Value, Track, Fill, Thumb>: View
 where Value: BinaryFloatingPoint,
       Value.Stride: BinaryFloatingPoint,
       Track: View,
@@ -71,72 +71,79 @@ where Value: BinaryFloatingPoint,
         HStack {
             minimumValueLabel
             ZStack {
-                track()
-                    .measureSize {
-                        let firstInit = (trackSize == .zero)
-                        trackSize = $0
-                        if firstInit {
-                            xOffset = (trackSize.width - thumbSize.width) * CGFloat(percentage)
-                            lastOffset = xOffset
-                        }
-                    }
-                fill?()
-                    .position(x: fillWidth - trackSize.width / 2, y: trackSize.height / 2)
-                    .frame(width: fillWidth, height: trackSize.height)
+                trackView
+                fillView
             }
             .frame(width: trackSize.width, height: trackSize.height)
             .overlay(
-                thumb()
-                    .position(
-                        x: thumbSize.width / 2,
-                        y: thumbSize.height / 2
-                    )
-                    .frame(width: thumbSize.width, height: thumbSize.height)
-                    .offset(x: xOffset)
-                    .gesture(
-                        DragGesture(minimumDistance: 0)
-                            .onChanged(
-                                { gestureValue in
-                        if abs(gestureValue.translation.width) < 0.1 {
-                            lastOffset = xOffset
-                            onEditingChanged?(true)
-                        }
-                        let availableWidth = trackSize.width - thumbSize.width
-                        xOffset = max(0, min(lastOffset + gestureValue.translation.width, availableWidth))
-                        let newValue = (bounds.upperBound - bounds.lowerBound) * Value(xOffset / availableWidth) + bounds.lowerBound
-                        let steppedNewValue = (round(newValue / step) * step)
-                        value = min(bounds.upperBound, max(bounds.lowerBound, steppedNewValue))
-                    }).onEnded({ _ in
-                        onEditingChanged?(false)
-                    })),
-                alignment: .leading)
-
+                thumbView,
+                alignment: .leading
+            )
             maximumValueLabel
         }
         .frame(height: max(trackSize.height, thumbSize.height))
     }
+
+    private var fillView: some View {
+        fill?()
+            .position(x: fillWidth - trackSize.width / 2, y: trackSize.height / 2)
+            .frame(width: fillWidth, height: trackSize.height)
+    }
+
+    private var trackView: some View {
+        track()
+            .measureSize {
+                let firstInit = (trackSize == .zero)
+                trackSize = $0
+                if firstInit {
+                    xOffset = (trackSize.width - thumbSize.width) * CGFloat(percentage)
+                    lastOffset = xOffset
+                }
+            }
+    }
+
+    private var thumbView: some View {
+        thumb()
+            .position(
+                x: thumbSize.width / 2,
+                y: thumbSize.height / 2
+            )
+            .frame(width: thumbSize.width, height: thumbSize.height)
+            .offset(x: xOffset)
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged(
+                        { gestureValue in
+                            if abs(gestureValue.translation.width) < 0.1 {
+                                lastOffset = xOffset
+                                onEditingChanged?(true)
+                            }
+                            let availableWidth = trackSize.width - thumbSize.width
+                            xOffset = max(0, min(lastOffset + gestureValue.translation.width, availableWidth))
+                            let newValue = (bounds.upperBound - bounds.lowerBound) * Value(xOffset / availableWidth) + bounds.lowerBound
+                            let steppedNewValue = (round(newValue / step) * step)
+                            value = min(bounds.upperBound, max(bounds.lowerBound, steppedNewValue))
+                        }).onEnded({ _ in
+                            onEditingChanged?(false)
+                        }))
+    }
 }
 
+/// Именнованное значение размера для слайдера
 struct SizePreferenceKey: PreferenceKey {
     static var defaultValue: CGSize = .zero
-
+    
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
         value = nextValue()
     }
 }
 
+/// Модификатор цвета слайдера
 struct MeasureSizeModifier: ViewModifier {
     func body(content: Content) -> some View {
         content.background(GeometryReader { geometry in
             Color.clear.preference(key: SizePreferenceKey.self,
                                    value: geometry.size)
         })
-    }
-}
-
-extension View {
-    func measureSize(perform action: @escaping (CGSize) -> Void) -> some View {
-        self.modifier(MeasureSizeModifier())
-            .onPreferenceChange(SizePreferenceKey.self, perform: action)
     }
 }
