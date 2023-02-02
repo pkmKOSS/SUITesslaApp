@@ -58,7 +58,7 @@ struct SettingsScreenView: View {
             if settingsScreenViewModel.isSupportAlertShown {
                 supportAlertView
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 
     // MARK: - Private properties
@@ -461,10 +461,8 @@ struct SettingsScreenView: View {
                 }
                 .offset(y: -30)
                 HStack {
-                    HStack {
-                        colorPickerView.padding()
-                        temputareStepperView.padding()
-                    }
+                    activateButton.padding()
+                    temputareStepperView.padding()
                     ventilateView.padding()
                 }
             }
@@ -485,15 +483,11 @@ struct SettingsScreenView: View {
         .accentColor(.gray)
     }
 
-    private var colorPickerView: some View {
-        ColorPicker(selection: $settingsScreenViewModel.selectedColor) {
-            Text(Constants.colorPickerText)
-                .frame(width: 70)
-                .rotationEffect(Angle(degrees: 90))
-        }
-        .padding(.leading)
-        .rotationEffect(Angle(degrees: -90))
-        .frame(width: 60, height: 100)
+    private var activateButton: some View {
+        VStack(spacing: 45) {
+            Image("activate")
+            Text("On")
+        }.offset(y: -20)
     }
 
     private var temputareStepperView: some View {

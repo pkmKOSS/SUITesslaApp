@@ -20,25 +20,26 @@ struct CustomStepper: View {
 
     // MARK: - Public properties
 
-     @Binding var isStarted: Bool
-     @Binding var value: Double
+    @Binding var isStarted: Bool
+    @Binding var value: Double
 
-     var body: some View {
-         HStack {
-             Button {
-                 value -= Constants.degreesDelta
-             } label: {
-                 Image(systemName: Constants.leftImageButtonName)
-              }
-              Text("\(Int(value))°")
-                  .font(.system(size: 34))
-                  .padding(.horizontal)
-              Button {
-                  value += Constants.degreesDelta
-              } label: {
-                  Image(systemName: Constants.rightImageButtonName)
-              }
-          }
-          .foregroundColor(.white)
-      }
-  }
+    var body: some View {
+        HStack {
+            Button {
+                value -= Constants.degreesDelta
+            } label: {
+                Image(systemName: Constants.leftImageButtonName)
+            }
+            Text("\(Int(value))°")
+                .frame(width: 65)
+                .font(.system(size: 34))
+                .padding(.horizontal)
+            Button {
+                value += Constants.degreesDelta
+            } label: {
+                Image(systemName: Constants.rightImageButtonName)
+            }
+        }
+        .foregroundColor(.white)
+    }
+}

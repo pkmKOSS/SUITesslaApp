@@ -36,7 +36,7 @@ struct CarPreviewScreen: View {
                 controllPanelView
                 Spacer()
                     .frame(height: 40)
-                if viewModel.tagSelected == 1 {
+                if CarPreviewModel.tagSelected == 1 {
                     closeCarControllView
                 }
                 Spacer()
@@ -46,7 +46,7 @@ struct CarPreviewScreen: View {
 
     // MARK: - Private properties
 
-    @StateObject private var viewModel = CarPreviewModelView()
+    @StateObject private var CarPreviewModel = CarPreviewModelView()
 
     private var gradient: LinearGradient {
         LinearGradient(colors: [Color(Constants.topGradientColorName), Color(Constants.bottomGradientColorName)], startPoint: .bottom, endPoint: .top)
@@ -66,7 +66,7 @@ struct CarPreviewScreen: View {
                         .overlay(
                             Circle()
                                 .stroke(gradient, lineWidth: 2)
-                                .opacity(viewModel.tagSelected == index ? 1 : 0)
+                                .opacity(CarPreviewModel.tagSelected == index ? 1 : 0)
                         )
                 }
             }
@@ -96,7 +96,7 @@ struct CarPreviewScreen: View {
     }
 
     private var carView: some View {
-        Image(viewModel.isCarClosed ? Constants.closeCarImageName : Constants.carImageName)
+        Image(CarPreviewModel.isCarClosed ? Constants.closeCarImageName : Constants.carImageName)
             .resizable()
             .frame(height: 250)
             .padding(.leading, 30)
@@ -106,14 +106,14 @@ struct CarPreviewScreen: View {
     private var closeCarControllView: some View {
         Button {
             withAnimation {
-                viewModel.openCloseCar()
+                CarPreviewModel.openCloseCar()
             }
         } label: {
             HStack {
                 Label {
-                    Text(viewModel.isCarClosed ? Constants.closeText : Constants.openText)
+                    Text(CarPreviewModel.isCarClosed ? Constants.closeText : Constants.openText)
                 } icon: {
-                    Image(systemName: viewModel.isCarClosed ? Constants.lockImageName : Constants.lockFillImageName)
+                    Image(systemName: CarPreviewModel.isCarClosed ? Constants.lockImageName : Constants.lockFillImageName)
                         .renderingMode(.template)
                         .neumorfismUnSelectedCircleStyle()
                 }

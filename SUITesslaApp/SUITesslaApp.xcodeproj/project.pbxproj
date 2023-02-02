@@ -114,12 +114,12 @@
 			isa = PBXGroup;
 			children = (
 				6B63EED0298BCEFD00F7CEEA /* CarPreview */,
-				6B63EECD298BC53200F7CEEA /* CustomStepper */,
-				6B63EECA298BA7E600F7CEEA /* Extensions */,
-				6BA0E79F298A3DA300C2AC98 /* GlobalConstants */,
 				6BA0E79C2989B88800C2AC98 /* CustomSlider */,
 				6BA0E799298997B900C2AC98 /* SettingsScreen */,
 				6B9EB0262988E6030037D178 /* StartScreen */,
+				6B63EECA298BA7E600F7CEEA /* Extensions */,
+				6B63EECD298BC53200F7CEEA /* CustomStepper */,
+				6BA0E79F298A3DA300C2AC98 /* GlobalConstants */,
 				6B9EB018298859560037D178 /* SUITesslaAppApp.swift */,
 				6B9EB01C298859580037D178 /* Assets.xcassets */,
 				6B9EB01E298859580037D178 /* Preview Content */,
