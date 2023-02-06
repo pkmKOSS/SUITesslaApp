@@ -9,10 +9,23 @@ import SwiftUI
 
 @main
 struct SUITesslaAppApp: App {
+    @State var isLoadingComplete = false
     var body: some Scene {
         WindowGroup {
-            StartScreenView()
-                .environment(\.colorScheme, .dark)
+            NavigationView {
+                ZStack {
+                    LounchScreen()
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                                isLoadingComplete = true
+                            }
+                        }
+                    if isLoadingComplete {
+                        StartTabView().transition(.slide)
+                    }
+                }
+            }
+            .environment(\.colorScheme, .dark)
         }
     }
 }

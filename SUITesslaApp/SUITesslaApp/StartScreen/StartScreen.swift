@@ -149,3 +149,10 @@ struct StartScreenView: View {
         .cornerRadius(35)
     }
 }
+
+struct StartScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        StartScreenView()
+            .environment(\.colorScheme, .dark)
+    }
+}

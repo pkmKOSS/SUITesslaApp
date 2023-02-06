@@ -39,6 +39,8 @@ struct SettingsScreenView: View {
         static let supportAlertText = "Tesla Support"
         static let supportAlertURL = "https://www.tesla.com/support"
         static let suppirtAlertButtonText = "Close"
+        static let onActivateImageName = "activate"
+        static let onButtonText = "On"
     }
 
     // MARK: - Public properties
@@ -86,12 +88,7 @@ struct SettingsScreenView: View {
         }
     }
 
-    private var goPreviusScreenButtonView: some View {
-        ZStack {
-            goPreviusShadowCircle
-            goPreviusScreenButton
-        }
-    }
+
 
     private var settingsButtonView: some View {
         Button {
@@ -126,6 +123,13 @@ struct SettingsScreenView: View {
         ZStack {
             goPreviusShadowCircle
             settingsButtonView
+        }
+    }
+
+    private var goPreviusScreenButtonView: some View {
+        ZStack {
+            goPreviusShadowCircle
+            goPreviusScreenButton
         }
     }
 
@@ -485,8 +489,8 @@ struct SettingsScreenView: View {
 
     private var activateButton: some View {
         VStack(spacing: 45) {
-            Image("activate")
-            Text("On")
+            Image(Constants.onActivateImageName)
+            Text(Constants.onButtonText)
         }.offset(y: -20)
     }
 
@@ -517,5 +521,12 @@ struct SettingsScreenView: View {
         DispatchQueue.main.async {
             settingsScreenViewModel.setCurrenActionSheertYOffset(size: gestureOffset)
         }
+    }
+}
+
+struct SettingsScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsScreenView()
+            .environment(\.colorScheme, .dark)
     }
 }

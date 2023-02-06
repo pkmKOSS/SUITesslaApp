@@ -1,4 +1,3 @@
-//
 //  CustomSlider.swift
 //  SUITesslaApp
 //
@@ -14,9 +13,9 @@ where Value: BinaryFloatingPoint,
       Track: View,
       Fill: View,
       Thumb: View {
-
+    
     // MARK: - Public properties
-
+    
     let bounds: ClosedRange<Value>
     let step: Value
     let minimumValueLabel: Text?
@@ -26,17 +25,17 @@ where Value: BinaryFloatingPoint,
     let fillClouser: (() -> Fill)?
     let thumbClouser: () -> Thumb
     let thumbSizeClouser: CGSize
-
+    
     @Binding var value: Value
-
+    
     // MARK: - Private properties
-
+    
     @State private var xOffset: CGFloat = 0
     @State private var lastOffset: CGFloat = 0
     @State private var trackSize: CGSize = .zero
-
+    
     // MARK: - init
-
+    
     init(value: Binding<Value>,
          in bounds: ClosedRange<Value> = 0...1,
          step: Value = 0.001,
@@ -58,7 +57,7 @@ where Value: BinaryFloatingPoint,
         self.thumbClouser = thumb
         self.thumbSizeClouser = thumbSize
     }
-
+    
     var body: some View {
         HStack {
             minimumValueLabel
@@ -75,23 +74,23 @@ where Value: BinaryFloatingPoint,
         }
         .frame(height: max(trackSize.height, thumbSizeClouser.height))
     }
-
+    
     // MARK: - Private properties
-
+    
     private var percentage: Value {
         1 - (bounds.upperBound - value) / (bounds.upperBound - bounds.lowerBound)
     }
-
+    
     private var fillWidth: CGFloat {
         trackSize.width * CGFloat(percentage)
     }
-
+    
     private var fillView: some View {
         fillClouser?()
             .position(x: fillWidth - trackSize.width / 2, y: trackSize.height / 2)
             .frame(width: fillWidth, height: trackSize.height)
     }
-
+    
     private var trackView: some View {
         trackClouser()
             .measureSize {
@@ -103,7 +102,7 @@ where Value: BinaryFloatingPoint,
                 }
             }
     }
-
+    
     private var thumbView: some View {
         thumbClouser()
             .position(
