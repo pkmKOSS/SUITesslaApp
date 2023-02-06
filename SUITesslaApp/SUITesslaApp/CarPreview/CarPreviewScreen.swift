@@ -1,4 +1,3 @@
-//
 //  CarPreviewScreen.swift
 //  SUITesslaApp
 //
@@ -47,7 +46,7 @@ struct CarPreviewScreen: View {
     // MARK: - Private properties
 
     @StateObject private var CarPreviewModel = CarPreviewModelView()
-
+    
     private var gradient: LinearGradient {
         LinearGradient(colors: [Color(Constants.topGradientColorName), Color(Constants.bottomGradientColorName)], startPoint: .bottom, endPoint: .top)
     }
@@ -68,6 +67,11 @@ struct CarPreviewScreen: View {
                                 .stroke(gradient, lineWidth: 2)
                                 .opacity(CarPreviewModel.tagSelected == index ? 1 : 0)
                         )
+                }
+                .onTapGesture {
+                   withAnimation {
+                        self.CarPreviewModel.tagSelected = index
+                    }
                 }
             }
         }
@@ -112,9 +116,11 @@ struct CarPreviewScreen: View {
             HStack {
                 Label {
                     Text(CarPreviewModel.isCarClosed ? Constants.closeText : Constants.openText)
+                        .foregroundColor(.gray)
                 } icon: {
                     Image(systemName: CarPreviewModel.isCarClosed ? Constants.lockImageName : Constants.lockFillImageName)
                         .renderingMode(.template)
+                        .foregroundColor(.gray)
                         .neumorfismUnSelectedCircleStyle()
                 }
             }
@@ -135,6 +141,39 @@ struct CarPreviewScreen: View {
                 .edgesIgnoringSafeArea(.all)
             content()
         }
+    }
+
+    private var unlockView: some View {
+        ZStack {
+            LinearGradient(colors: !CarPreviewModel.isCarClosed ? [GlobalConstants.backgroundTopColor] : [.black, .gray], startPoint: .topLeading, endPoint: .bottomTrailing)
+            HStack {
+                Text(CarPreviewModel.isCarClosed ? GlobalConstants.lockButtonImageName : GlobalConstants.unlockButtonText)
+                    .frame(width: 70)
+                    .padding(.trailing)
+                ZStack {
+                    Circle()
+                        .fill(GlobalConstants.backgroundTopColor)
+                        .shadow(color: .gray, radius: 3, x: -3, y: -3)
+                        .shadow(color: .black, radius: 3, x: 3, y: 3)
+                        .frame(width: 45, height: 45)
+                    Button {
+                        DispatchQueue.main.async {
+                            withAnimation {
+                                self.CarPreviewModel.isCarClosed.toggle()
+                            }
+                        }
+                    } label: {
+                        Image(systemName: GlobalConstants.lockButtonImageName)
+                            .renderingMode(.template)
+                            .foregroundColor(GlobalConstants.topLockGradient)
+                            .frame(width: 32, height: 32)
+                    }
+                }
+            }
+            .padding()
+        }
+        .frame(width: 165, height: 79)
+        .cornerRadius(35)
     }
 }
 

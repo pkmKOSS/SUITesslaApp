@@ -29,4 +29,8 @@ extension View {
         self.modifier(MeasureSizeModifier())
             .onPreferenceChange(SizePreferenceKey.self, perform: action)
     }
+
+    func myTabItem(_ label: () -> TabItem) -> some View {
+        modifier(TabItemModifire(tabBatItem: label()))
+    }
 }

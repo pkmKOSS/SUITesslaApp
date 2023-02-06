@@ -1,4 +1,3 @@
-//
 //  CarPreviewModelView.swift
 //  SUITesslaApp
 //

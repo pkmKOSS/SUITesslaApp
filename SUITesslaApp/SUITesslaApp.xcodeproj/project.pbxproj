@@ -7,11 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2390CB29901B9F00F70466 /* LounchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390CA29901B9F00F70466 /* LounchScreen.swift */; };
+		6B2390CE299038E700F70466 /* TabbarBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390CD299038E700F70466 /* TabbarBackgroundView.swift */; };
+		6B2390D02990392500F70466 /* TabbarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390CF2990392500F70466 /* TabbarContentView.swift */; };
+		6B2390D229903A0200F70466 /* TabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390D129903A0200F70466 /* TabbarViewModel.swift */; };
+		6B2390D429903A4B00F70466 /* TabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390D329903A4B00F70466 /* TabItem.swift */; };
+		6B2390D729903A7B00F70466 /* TabItemPreferenceKeyModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390D629903A7B00F70466 /* TabItemPreferenceKeyModifier.swift */; };
+		6B2390D929903AD900F70466 /* TabitemPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390D829903AD900F70466 /* TabitemPreferenceKey.swift */; };
+		6B2390DB29903B4300F70466 /* StartTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390DA29903B4300F70466 /* StartTabView.swift */; };
+		6B2390DE29903C3C00F70466 /* StartTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2390DD29903C3C00F70466 /* StartTabViewModel.swift */; };
 		6B63EEC9298BA71100F7CEEA /* NeumorphismModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B63EEC8298BA71100F7CEEA /* NeumorphismModifiers.swift */; };
 		6B63EECC298BA7FB00F7CEEA /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B63EECB298BA7FB00F7CEEA /* View+.swift */; };
 		6B63EECF298BC53F00F7CEEA /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B63EECE298BC53F00F7CEEA /* CustomStepper.swift */; };
 		6B63EED2298BCF1200F7CEEA /* CarPreviewModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B63EED1298BCF1200F7CEEA /* CarPreviewModelView.swift */; };
 		6B63EED5298BD0C800F7CEEA /* CarPreviewNeumorphismModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B63EED4298BD0C800F7CEEA /* CarPreviewNeumorphismModifiers.swift */; };
+		6B910F1F29903EBE004CC925 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B910F1E29903EBE004CC925 /* Color+.swift */; };
+		6B910F2329904A51004CC925 /* CarChargingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B910F2229904A51004CC925 /* CarChargingScreenView.swift */; };
+		6B910F2729904B45004CC925 /* ChargingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B910F2629904B45004CC925 /* ChargingSlider.swift */; };
+		6B910F2A29904BA5004CC925 /* CarChargingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B910F2929904BA5004CC925 /* CarChargingViewModel.swift */; };
+		6B910F2D29904C11004CC925 /* CastomCharchProgresViewShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B910F2C29904C11004CC925 /* CastomCharchProgresViewShape.swift */; };
+		6B910F2F29904CDA004CC925 /* CharchingSliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B910F2E29904CDA004CC925 /* CharchingSliderViewModel.swift */; };
+		6B910F3129904D1E004CC925 /* ProgressViewThumbViewShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B910F3029904D1E004CC925 /* ProgressViewThumbViewShape.swift */; };
+		6B910F342990D0EC004CC925 /* CarChargingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B910F332990D0EC004CC925 /* CarChargingModifier.swift */; };
 		6B9EB019298859560037D178 /* SUITesslaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9EB018298859560037D178 /* SUITesslaAppApp.swift */; };
 		6B9EB01B298859560037D178 /* CarPreviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9EB01A298859560037D178 /* CarPreviewScreen.swift */; };
 		6B9EB01D298859580037D178 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B9EB01C298859580037D178 /* Assets.xcassets */; };
@@ -24,11 +41,28 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B2390CA29901B9F00F70466 /* LounchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LounchScreen.swift; sourceTree = "<group>"; };
+		6B2390CD299038E700F70466 /* TabbarBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarBackgroundView.swift; sourceTree = "<group>"; };
+		6B2390CF2990392500F70466 /* TabbarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContentView.swift; sourceTree = "<group>"; };
+		6B2390D129903A0200F70466 /* TabbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewModel.swift; sourceTree = "<group>"; };
+		6B2390D329903A4B00F70466 /* TabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItem.swift; sourceTree = "<group>"; };
+		6B2390D629903A7B00F70466 /* TabItemPreferenceKeyModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemPreferenceKeyModifier.swift; sourceTree = "<group>"; };
+		6B2390D829903AD900F70466 /* TabitemPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabitemPreferenceKey.swift; sourceTree = "<group>"; };
+		6B2390DA29903B4300F70466 /* StartTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabView.swift; sourceTree = "<group>"; };
+		6B2390DD29903C3C00F70466 /* StartTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTabViewModel.swift; sourceTree = "<group>"; };
 		6B63EEC8298BA71100F7CEEA /* NeumorphismModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphismModifiers.swift; sourceTree = "<group>"; };
 		6B63EECB298BA7FB00F7CEEA /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		6B63EECE298BC53F00F7CEEA /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
 		6B63EED1298BCF1200F7CEEA /* CarPreviewModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPreviewModelView.swift; sourceTree = "<group>"; };
 		6B63EED4298BD0C800F7CEEA /* CarPreviewNeumorphismModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPreviewNeumorphismModifiers.swift; sourceTree = "<group>"; };
+		6B910F1E29903EBE004CC925 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		6B910F2229904A51004CC925 /* CarChargingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarChargingScreenView.swift; sourceTree = "<group>"; };
+		6B910F2629904B45004CC925 /* ChargingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingSlider.swift; sourceTree = "<group>"; };
+		6B910F2929904BA5004CC925 /* CarChargingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarChargingViewModel.swift; sourceTree = "<group>"; };
+		6B910F2C29904C11004CC925 /* CastomCharchProgresViewShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomCharchProgresViewShape.swift; sourceTree = "<group>"; };
+		6B910F2E29904CDA004CC925 /* CharchingSliderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharchingSliderViewModel.swift; sourceTree = "<group>"; };
+		6B910F3029904D1E004CC925 /* ProgressViewThumbViewShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewThumbViewShape.swift; sourceTree = "<group>"; };
+		6B910F332990D0EC004CC925 /* CarChargingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarChargingModifier.swift; sourceTree = "<group>"; };
 		6B9EB015298859560037D178 /* SUITesslaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUITesslaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9EB018298859560037D178 /* SUITesslaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUITesslaAppApp.swift; sourceTree = "<group>"; };
 		6B9EB01A298859560037D178 /* CarPreviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPreviewScreen.swift; sourceTree = "<group>"; };
@@ -52,6 +86,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B2390CC299038AB00F70466 /* CustomTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				6B2390D529903A5D00F70466 /* TabitemModifiers */,
+				6B2390CD299038E700F70466 /* TabbarBackgroundView.swift */,
+				6B2390CF2990392500F70466 /* TabbarContentView.swift */,
+				6B2390D129903A0200F70466 /* TabbarViewModel.swift */,
+				6B2390D329903A4B00F70466 /* TabItem.swift */,
+				6B2390D829903AD900F70466 /* TabitemPreferenceKey.swift */,
+			);
+			path = CustomTabBarView;
+			sourceTree = "<group>";
+		};
+		6B2390D529903A5D00F70466 /* TabitemModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				6B2390D629903A7B00F70466 /* TabItemPreferenceKeyModifier.swift */,
+			);
+			path = TabitemModifiers;
+			sourceTree = "<group>";
+		};
+		6B2390DC29903C2D00F70466 /* MainTabView */ = {
+			isa = PBXGroup;
+			children = (
+				6B2390DA29903B4300F70466 /* StartTabView.swift */,
+				6B2390DD29903C3C00F70466 /* StartTabViewModel.swift */,
+			);
+			path = MainTabView;
+			sourceTree = "<group>";
+		};
 		6B63EEC7298BA6C900F7CEEA /* NeumorphismModifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				6B63EECB298BA7FB00F7CEEA /* View+.swift */,
+				6B910F1E29903EBE004CC925 /* Color+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -94,6 +159,40 @@
 			path = Modifier;
 			sourceTree = "<group>";
 		};
+		6B910F2029904A25004CC925 /* CarChargingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6B910F322990D0D6004CC925 /* CarChargingModifier */,
+				6B910F2229904A51004CC925 /* CarChargingScreenView.swift */,
+			);
+			path = CarChargingScreen;
+			sourceTree = "<group>";
+		};
+		6B910F2829904B89004CC925 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6B910F2929904BA5004CC925 /* CarChargingViewModel.swift */,
+				6B910F2E29904CDA004CC925 /* CharchingSliderViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6B910F2B29904BF6004CC925 /* CastomCharchProgresViewShape */ = {
+			isa = PBXGroup;
+			children = (
+				6B910F2C29904C11004CC925 /* CastomCharchProgresViewShape.swift */,
+			);
+			path = CastomCharchProgresViewShape;
+			sourceTree = "<group>";
+		};
+		6B910F322990D0D6004CC925 /* CarChargingModifier */ = {
+			isa = PBXGroup;
+			children = (
+				6B910F332990D0EC004CC925 /* CarChargingModifier.swift */,
+			);
+			path = CarChargingModifier;
+			sourceTree = "<group>";
+		};
 		6B9EB00C298859560037D178 = {
 			isa = PBXGroup;
 			children = (
@@ -113,8 +212,12 @@
 		6B9EB017298859560037D178 /* SUITesslaApp */ = {
 			isa = PBXGroup;
 			children = (
+				6B910F2B29904BF6004CC925 /* CastomCharchProgresViewShape */,
+				6B910F2029904A25004CC925 /* CarChargingScreen */,
+				6B2390DC29903C2D00F70466 /* MainTabView */,
+				6B2390CC299038AB00F70466 /* CustomTabBarView */,
 				6B63EED0298BCEFD00F7CEEA /* CarPreview */,
-				6BA0E79C2989B88800C2AC98 /* CustomSlider */,
+				6BA0E79C2989B88800C2AC98 /* CustomSliders */,
 				6BA0E799298997B900C2AC98 /* SettingsScreen */,
 				6B9EB0262988E6030037D178 /* StartScreen */,
 				6B63EECA298BA7E600F7CEEA /* Extensions */,
@@ -123,6 +226,7 @@
 				6B9EB018298859560037D178 /* SUITesslaAppApp.swift */,
 				6B9EB01C298859580037D178 /* Assets.xcassets */,
 				6B9EB01E298859580037D178 /* Preview Content */,
+				6B2390CA29901B9F00F70466 /* LounchScreen.swift */,
 			);
 			path = SUITesslaApp;
 			sourceTree = "<group>";
@@ -153,12 +257,15 @@
 			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
-		6BA0E79C2989B88800C2AC98 /* CustomSlider */ = {
+		6BA0E79C2989B88800C2AC98 /* CustomSliders */ = {
 			isa = PBXGroup;
 			children = (
+				6B910F2829904B89004CC925 /* ViewModels */,
 				6BA0E79D2989B89800C2AC98 /* CarSettingsSlider.swift */,
+				6B910F2629904B45004CC925 /* ChargingSlider.swift */,
+				6B910F3029904D1E004CC925 /* ProgressViewThumbViewShape.swift */,
 			);
-			path = CustomSlider;
+			path = CustomSliders;
 			sourceTree = "<group>";
 		};
 		6BA0E79F298A3DA300C2AC98 /* GlobalConstants */ = {
@@ -239,17 +346,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B2390CE299038E700F70466 /* TabbarBackgroundView.swift in Sources */,
+				6B910F2F29904CDA004CC925 /* CharchingSliderViewModel.swift in Sources */,
+				6B910F2729904B45004CC925 /* ChargingSlider.swift in Sources */,
+				6B2390D929903AD900F70466 /* TabitemPreferenceKey.swift in Sources */,
 				6B63EECF298BC53F00F7CEEA /* CustomStepper.swift in Sources */,
 				6BA0E79E2989B89800C2AC98 /* CarSettingsSlider.swift in Sources */,
+				6B910F2A29904BA5004CC925 /* CarChargingViewModel.swift in Sources */,
+				6B910F3129904D1E004CC925 /* ProgressViewThumbViewShape.swift in Sources */,
+				6B910F342990D0EC004CC925 /* CarChargingModifier.swift in Sources */,
 				6B9EB01B298859560037D178 /* CarPreviewScreen.swift in Sources */,
+				6B2390CB29901B9F00F70466 /* LounchScreen.swift in Sources */,
 				6B9EB019298859560037D178 /* SUITesslaAppApp.swift in Sources */,
 				6BA0E7A3298ACB6500C2AC98 /* SettingsScreenViewModel.swift in Sources */,
 				6BA0E7A1298A3DCC00C2AC98 /* GlobalConstants.swift in Sources */,
+				6B910F2329904A51004CC925 /* CarChargingScreenView.swift in Sources */,
+				6B2390D229903A0200F70466 /* TabbarViewModel.swift in Sources */,
 				6B63EED5298BD0C800F7CEEA /* CarPreviewNeumorphismModifiers.swift in Sources */,
+				6B2390DE29903C3C00F70466 /* StartTabViewModel.swift in Sources */,
+				6B2390D729903A7B00F70466 /* TabItemPreferenceKeyModifier.swift in Sources */,
 				6B63EED2298BCF1200F7CEEA /* CarPreviewModelView.swift in Sources */,
+				6B2390DB29903B4300F70466 /* StartTabView.swift in Sources */,
+				6B910F2D29904C11004CC925 /* CastomCharchProgresViewShape.swift in Sources */,
 				6B63EECC298BA7FB00F7CEEA /* View+.swift in Sources */,
 				6BA0E79B298997C800C2AC98 /* SettingsScreenView.swift in Sources */,
 				6B63EEC9298BA71100F7CEEA /* NeumorphismModifiers.swift in Sources */,
+				6B2390D02990392500F70466 /* TabbarContentView.swift in Sources */,
+				6B910F1F29903EBE004CC925 /* Color+.swift in Sources */,
+				6B2390D429903A4B00F70466 /* TabItem.swift in Sources */,
 				6B9EB0282988E6160037D178 /* StartScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
